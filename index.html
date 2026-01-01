@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Fakhri Aly Akbar - Lulusan SMK TJKT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --accent: #60a5fa;
+            --light: #eff6ff;
+            --dark: #0f172a;
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 20%);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, var(--accent), var(--light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            background: var(--light);
+            padding: 1.2rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .skill-icon {
+            background: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--accent);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+        
+        .availability {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--secondary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #bfdbfe 0%, transparent 100%);
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        
+        .strength-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h1>M. FAKHRI ALY AKBAR</h1>
+                <p class="tagline">Lulusan SMK Jurusan TJKT | SMKN 1 PLERED</p>
+                <p>Siap berkontribusi dengan kemampuan administrasi dan pelayanan yang baik</p>
+                <div class="availability">
+                    <i class="fas fa-check-circle"></i> Siap Diterima Segera
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Profil & Karir</h2>
+            <div class="about-content">
+                <div class="card">
+                    <h3><i class="fas fa-user-tie"></i> Profil Professional</h3>
+                    <p>Saya adalah lulusan SMKN 1 Plered jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Selama pendidikan, saya mengembangkan kemampuan dasar komputer serta soft skills yang diperlukan di dunia kerja.</p>
+                    
+                    <div style="margin-top: 1.5rem;">
+                        <h4><i class="fas fa-bullseye"></i> Fokus Karir:</h4>
+                        <p>Saya berfokus pada posisi-posisi yang membutuhkan ketelitian, komunikasi, dan kemampuan administrasi.</p>
+                    </div>
+                    
+                    <p style="margin-top: 1rem;"><strong>Tahun Kelahiran:</strong> 2007</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-bullseye"></i> Tujuan Karir</h3>
+                    <p>Saya mencari kesempatan untuk berkembang di posisi:</p>
+                    <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><strong>Staf Administrasi</strong> - Kantor, perusahaan, instansi</li>
+                        <li><strong>Customer Service / Front Office</strong> - Pelayanan pelanggan</li>
+                        <li><strong>Operator Data Entry</strong> - Input dan pengolahan data</li>
+                        <li><strong>Staff Pelayanan</strong> - Berbagai bidang usaha</li>
+                    </ul>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: #f0f9ff; border-radius: 8px;">
+                        <h4><i class="fas fa-star"></i> Keunggulan Saya:</h4>
+                        <div style="margin-top: 0.5rem;">
+                            <span class="strength-badge">Mudah Beradaptasi</span>
+                            <span class="strength-badge">Cepat Belajar</span>
+                            <span class="strength-badge">Kerja Tim</span>
+                            <span class="strength-badge">Komunikatif</span>
+                            <span class="strength-badge">Disiplin</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education & Experience -->
+    <section id="experience" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Pendidikan & Pengalaman</h2>
+            
+            <div class="about-content">
+                <div class="card">
+                    <h3><i class="fas fa-university"></i> Riwayat Pendidikan</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - 2026</div>
+                            <h4>SMKN 1 PLERED</h4>
+                            <p>Jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</p>
+                            <p>Lulus dengan kompetensi dasar teknologi informasi dan jaringan</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - 2023</div>
+                            <h4>SMPN 2 DARANGDAN</h4>
+                            <p>Lulus dengan nilai akademis yang memuaskan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-briefcase"></i> Pengalaman Praktik & Magang</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Juli - Oktober 2025</div>
+                            <h4>Praktik Kerja Lapangan (PKL)</h4>
+                            <p><strong>Kantor Desa Gandasoli, Kecamatan Plered</strong></p>
+                            <p><em>Posisi:</em> Asisten Administrasi dan Pelayanan</p>
+                            <p><em>Tanggung Jawab:</em> Input data kependudukan, pengarsipan dokumen, pelayanan administrasi warga, dokumentasi kegiatan desa</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Selama Pendidikan SMK</div>
+                            <h4>Praktik Sekolah & Organisasi</h4>
+                            <p>Mengikuti berbagai kegiatan praktik dan pengembangan diri di sekolah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Kemampuan & Kompetensi</h2>
+            
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div>
+                        <h4>Komputer & Administrasi</h4>
+                        <p>Microsoft Office (Word, Excel dasar), Pengoperasian komputer untuk administrasi, Pengetikan dokumen, Pengarsipan</p>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div>
+                        <h4>Pelayanan & Komunikasi</h4>
+                        <p>Pelayanan pelanggan, Komunikasi interpersonal, Kemampuan mendengarkan yang baik, Responsif terhadap kebutuhan</p>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                        <h4>Kemampuan Kerja</h4>
+                        <p>Mampu bekerja dalam tim, Adaptasi cepat di lingkungan baru, Bertanggung jawab terhadap tugas, Manajemen waktu</p>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div>
+                        <h4>Kompetensi Dasar</h4>
+                        <p>Pemahaman dasar teknologi informasi, Kemampuan belajar cepat, Ketelitian dalam pekerjaan, Inisiatif dalam menyelesaikan tugas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3><i class="fas fa-rocket"></i> Nilai Tambah Saya</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="padding: 1rem; background: #f0f9ff; border-radius: 8px;">
+                        <h4><i class="fas fa-sync-alt"></i> Adaptabilitas Tinggi</h4>
+                        <p>Mampu menyesuaikan diri dengan cepat di lingkungan kerja baru dan sistem yang berbeda</p>
+                    </div>
+                    <div style="padding: 1rem; background: #f0f9ff; border-radius: 8px;">
+                        <h4><i class="fas fa-hands-helping"></i> Kemampuan Kolaborasi</h4>
+                        <p>Terbiasa bekerja sama dalam tim untuk mencapai target bersama</p>
+                    </div>
+                    <div style="padding: 1rem; background: #f0f9ff; border-radius: 8px;">
+                        <h4><i class="fas fa-bolt"></i> Proaktif & Inisiatif</h4>
+                        <p>Selalu mencari cara untuk berkontribusi lebih dan membantu rekan kerja</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <p style="text-align: center; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Saya siap berkontribusi dengan dedikasi tinggi dan sikap profesional. Mari berdiskusi tentang peluang kerja yang sesuai.
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/6283829402164" class="contact-link">0838-2940-2164</a>
+                    <p>Respon cepat via WhatsApp</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:depakrialiakbar@gmail.com" class="contact-link">depakrialiakbar@gmail.com</a>
+                    <p>Untuk komunikasi formal</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Lokasi</h3>
+                    <p class="contact-link">Plered, Purwakarta, Jawa Barat</p>
+                    <p>Bersedia bekerja di Purwakarta dan sekitarnya</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://wa.me/6283829402164?text=Halo%20Fakhri,%20saya%20tertarik%20dengan%20profil%20Anda%20untuk%20peluang%20kerja" class="btn">
+                    <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
+                </a>
+                <a href="mailto:depakrialiakbar@gmail.com?subject=Lamaran%20Kerja%20-%20M.%20Fakhri%20Aly%20Akbar" class="btn btn-outline" style="margin-left: 1rem;">
+                    <i class="fas fa-paper-plane"></i> Kirim Email Lamaran
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #64748b;">
+                <p><i class="fas fa-clock"></i> <strong>Ketersediaan:</strong> Siap mulai bekerja dalam waktu dekat</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3 style="margin-bottom: 1rem;">M. FAKHRI ALY AKBAR</h3>
+            <p>Lulusan SMK TJKT | SMKN 1 PLERED | 2026</p>
+            <p style="margin: 1rem 0; opacity: 0.8;">"Siap berkontribusi dengan kemampuan administrasi dan pelayanan terbaik"</p>
+            
+            <div style="margin-top: 2rem;">
+                <p><i class="fas fa-graduation-cap"></i> Pendidikan: <strong>SMKN 1 Plered (TJKT)</strong></p>
+                <p><i class="fas fa-suitcase"></i> Minat Posisi: <strong>Staf Administrasi, Pelayanan, Customer Service</strong></p>
+                <p><i class="fas fa-check-circle"></i> Keunggulan: <strong>Mudah Beradaptasi, Kerja Tim, Cepat Belajar</strong></p>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                &copy; 2024 Portofolio Profesional M. Fakhri Aly Akbar
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card, .skill-item, .contact-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Set current year in footer
+            document.querySelector('footer p:last-child').innerHTML = 
+                `&copy; ${new Date().getFullYear()} Portofolio Profesional M. Fakhri Aly Akbar`;
+        });
+    </script>
+</body>
+</html>
